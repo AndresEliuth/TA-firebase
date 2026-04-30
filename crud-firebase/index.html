@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- REQUISITO: Meta viewport para que en el celular no se vea todo chiquito -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <?php 
+            include 'config_campos.php'; // Trae los campos configurados
+            foreach ($mis_campos as $id => $info) {
+                // Crea cada campo automáticamente usando el arreglo de PHP
+                echo "<label>{$info['label']}</label>";
+                echo "<input type='{$info['tipo']}' id='$id' placeholder='{$info['label']}'>";
+            }
+        ?>
+        <button onclick="agregar()">Guardar</button>
+        <table id="tabla"></table>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
